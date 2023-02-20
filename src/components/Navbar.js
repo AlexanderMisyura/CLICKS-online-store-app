@@ -4,8 +4,11 @@ import { HiBars4 } from "react-icons/hi2";
 
 import logo from "../assets/clicks-base-logo.png";
 import CartButtons from "./CartButtons";
+import { useSidebarContext } from "../context/sidebarContext";
 
 const Navbar = () => {
+  const { openSidebar } = useSidebarContext();
+
   return (
     <StyledNav>
       <div className="nav-content">
@@ -15,7 +18,11 @@ const Navbar = () => {
           </Link>
         </div>
         {/* hidden on big screen */}
-        <button type="button" className="btn-sidebar-open">
+        <button
+          className="btn-sidebar-open"
+          onClick={openSidebar}
+          type="button"
+        >
           <HiBars4 />
         </button>
         <ul className="nav-links">
@@ -66,7 +73,7 @@ const StyledNav = styled.nav`
 
   .btn-sidebar-open {
     background: transparent;
-    border: transparent;
+    border: none;
     color: var(--primary-500);
     cursor: pointer;
     svg {
@@ -100,7 +107,7 @@ const StyledNav = styled.nav`
           border-bottom: 1px solid var(--primary-400);
         }
         &:hover {
-          border-bottom: 1px solid var(--primary-200)
+          border-bottom: 1px solid var(--primary-200);
         }
       }
     }

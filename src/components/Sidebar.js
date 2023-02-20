@@ -1,5 +1,124 @@
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+import { BsX } from "react-icons/bs";
+
+import logo from "../assets/clicks-base-logo.png";
+import CartButtons from "./CartButtons";
+import { useContext } from "react";
+import { useSidebarContext } from "../context/sidebarContext";
+
 const Sidebar = () => {
-  return <div>Sidebar</div>;
+  const { isSidebarOpen, closeSidebar } = useSidebarContext();
+  // user context
+  const loggedUser = true;
+
+  return (
+    <SidebarContainer>
+      <aside className={isSidebarOpen ? "sidebar sidebar-show" : "sidebar"}>
+        <div className="sidebar-header">
+          <img className="sidebar-logo" src={logo} alt="clicks" />
+          <button
+            className="btn-sidebar-close"
+            onClick={closeSidebar}
+            type="button"
+          >
+            <BsX />
+          </button>
+        </div>
+        <ul className="sidebar-links">
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/about">About us</Link>
+          </li>
+          <li>
+            <Link to="/products">Products</Link>
+          </li>
+        </ul>
+        <CartButtons />
+      </aside>
+    </SidebarContainer>
+  );
 };
+
+const SidebarContainer = styled.div`
+  text-align: center;
+
+  .sidebar {
+    width: calc(100% - 2rem);
+    height: fit-content;
+    margin: 1rem;
+
+    opacity: 0;
+    background-color: var(--grey-50);
+    border-radius: var(--borderRadius);
+    box-shadow: var(--shadow-m);
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+
+    transition: var(--transition);
+    transform: translate(0, calc(100vh));
+  }
+
+  .sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4.5rem;
+    padding: 0.75rem 1rem;
+  }
+  .sidebar-logo {
+    height: 100%;
+  }
+
+  .btn-sidebar-close {
+    color: var(--primary-500);
+
+    background: transparent;
+    border: none;
+    cursor: pointer;
+
+    svg {
+      font-size: 2rem;
+    }
+  }
+
+  .sidebar-links {
+    margin-bottom: 2rem;
+    a {
+      display: block;
+      padding: 1rem 1.5rem;
+      margin: 0 auto;
+
+      font-size: 1.25rem;
+      color: var(--grey-700);
+
+      transition: var(--transition);
+    }
+    a:hover {
+      padding-top: 0.5rem;
+      padding-bottom: 1.5rem;
+      background-color: var(--grey-100);
+    }
+  }
+
+  .cart-btn-wrapper {
+    margin: 2rem auto;
+  }
+
+  .sidebar-show {
+    opacity: 1;
+    transform: translate(0);
+    z-index: 99;
+  }
+
+  @media screen and (min-width: 992px) {
+    display: none;
+  }
+`;
 
 export default Sidebar;

@@ -34,7 +34,7 @@ const CartButtons = () => {
 
 const StyledButtons = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 200px;
 
   .cart-btn {
