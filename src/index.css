@@ -29,6 +29,16 @@ html {
   --primary-800: #0d1820;
   --primary-900: #060c10;
 
+  --secondary-100: #f8f3e4;
+  --secondary-200: #f2e6ca;
+  --secondary-300: #ebdaaf;
+  --secondary-400: #e5cd95;
+  --secondary-500: #dec17a;
+  --secondary-600: #b29a62;
+  --secondary-700: #857449;
+  --secondary-800: #594d31;
+  --secondary-900: #2c2718;
+
   --grey-50: #fafafa;
   --grey-100: #f4f4f5;
   --grey-200: #e4e4e7;
@@ -72,9 +82,9 @@ html {
   --element-padding: 0.375rem 0.75rem;
 
   --textColor: var(--grey-900);
-  --letterSpacing: 1px;
+  --letterSpacing: 0.08rem;
 
-  --backgroundColor: var(--grey-50);
+  --backgroundColor: var(--primary-300);
   --borderRadius: 0.15rem;
 
   --transition: 0.3s ease-in-out all;
@@ -90,7 +100,20 @@ body {
   font-family: var(--fontFamilyHeading);
   line-height: 1.75;
 
-  background: var(--backgroundColor);
+  /* background-color: var(--backgroundColor);
+  background-image: linear-gradient(
+    160deg,
+    var(--backgroundColor) 25%,
+    var(--grey-200) 75%
+  ); */
+  background-color: var(--backgroundColor);
+  background-image: linear-gradient(
+    160deg,
+    var(--backgroundColor) 0%,
+    var(--grey-300) 40%,
+    var(--grey-200) 86%,
+    var(--secondary-300) 100%
+  );
 }
 
 p {
@@ -278,4 +301,15 @@ ul {
   margin: -1rem auto 0;
 
   background-color: var(--primary-500);
+}
+
+/* sections */
+
+.section {
+  padding: 3rem 0;
+}
+.section-center {
+  width: 90vw;
+  max-width: var(--max-width);
+  margin: 0 auto;
 }
