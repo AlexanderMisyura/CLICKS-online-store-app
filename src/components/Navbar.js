@@ -38,7 +38,7 @@ const Navbar = () => {
           </li>
           {loggedUser && (
             <li>
-              <Link to="/checkout">Checkout</Link>
+              <NavLink to="/checkout">Checkout</NavLink>
             </li>
           )}
         </ul>
@@ -54,6 +54,7 @@ const StyledNav = styled.nav`
 
   position: sticky;
   top: 1rem;
+  z-index: 20;
 
   .nav-content {
     display: flex;
