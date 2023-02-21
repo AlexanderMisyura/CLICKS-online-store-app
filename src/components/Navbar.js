@@ -8,6 +8,8 @@ import { useSidebarContext } from "../context/sidebarContext";
 
 const Navbar = () => {
   const { openSidebar } = useSidebarContext();
+  // user context
+  const loggedUser = true;
 
   return (
     <StyledNav>
@@ -34,6 +36,11 @@ const Navbar = () => {
           <li>
             <NavLink to="/products">Products</NavLink>
           </li>
+          {loggedUser && (
+            <li>
+              <Link to="/checkout">Checkout</Link>
+            </li>
+          )}
         </ul>
         <CartButtons />
       </div>

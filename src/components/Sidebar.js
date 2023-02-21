@@ -4,7 +4,6 @@ import { BsX } from "react-icons/bs";
 
 import logo from "../assets/clicks-base-logo.png";
 import CartButtons from "./CartButtons";
-import { useContext } from "react";
 import { useSidebarContext } from "../context/sidebarContext";
 
 const Sidebar = () => {
@@ -35,6 +34,11 @@ const Sidebar = () => {
           <li>
             <Link to="/products">Products</Link>
           </li>
+          {loggedUser && (
+            <li>
+              <Link to="/checkout">Checkout</Link>
+            </li>
+          )}
         </ul>
         <CartButtons />
       </aside>
