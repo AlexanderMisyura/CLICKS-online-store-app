@@ -17,7 +17,6 @@ const Navbar = () => {
             <img src={logo} alt="clicks" />
           </Link>
         </div>
-        {/* hidden on big screen */}
         <button
           className="btn-sidebar-open"
           onClick={openSidebar}
@@ -43,7 +42,7 @@ const Navbar = () => {
 };
 
 const StyledNav = styled.nav`
-  max-width: var(--max-width);
+  max-width: calc(var(--max-width) + 2rem);
   margin: 0 auto;
 
   position: sticky;
