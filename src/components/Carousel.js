@@ -13,22 +13,22 @@ const Carousel = () => {
   const nextSlideIndex =
     activeSlideIndex + 1 > topRated.length - 1 ? 0 : activeSlideIndex + 1;
 
-  // useEffect(() => {
-  //   const timeoutId = setTimeout(() => {
-  //     setActiveSlideIndex(nextSlideIndex);
-  //   }, 3000);
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setActiveSlideIndex(nextSlideIndex);
+    }, 3000);
 
-  //   return () => {
-  //     clearTimeout(timeoutId);
-  //   };
-  // }, [activeSlideIndex]);
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, [activeSlideIndex]);
 
   return (
     <div className="section section-center">
       <StyledCarousel>
         <button
           className="carousel-btn prev"
-          onClick={() => setActiveSlideIndex(nextSlideIndex)}
+          onClick={() => setActiveSlideIndex(prevSlideIndex)}
         >
           <BsChevronLeft />
         </button>
@@ -72,7 +72,7 @@ const Carousel = () => {
         </div>
         <button
           className="carousel-btn next"
-          onClick={() => setActiveSlideIndex(prevSlideIndex)}
+          onClick={() => setActiveSlideIndex(nextSlideIndex)}
         >
           <BsChevronRight />
         </button>
@@ -90,6 +90,8 @@ const StyledCarousel = styled.section`
   .products-container {
     width: 100%;
     height: 60vh;
+
+    overflow: hidden;
 
     position: relative;
   }
@@ -159,12 +161,12 @@ const StyledCarousel = styled.section`
   .prev-slide {
     display: block;
     opacity: 0;
-    transform: translate(100%);
+    transform: translate(-100%);
   }
   .next-slide {
     display: block;
     opacity: 0;
-    transform: translate(-100%);
+    transform: translate(100%);
   }
 
   .carousel-btn {
@@ -176,7 +178,6 @@ const StyledCarousel = styled.section`
 
     cursor: pointer;
     background-color: transparent;
-    /* background-image: radial-gradient(var(--primary-500), 0.05%, transparent); */
     border: none;
 
     position: absolute;
