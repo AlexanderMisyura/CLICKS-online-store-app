@@ -43,14 +43,16 @@ const StyledHero = styled.section`
   min-height: 70vh;
 
   h1 {
+    color: transparent;
+    letter-spacing: var(--letterSpacing);
+    font-size: 2.5rem;
+
     background-image: linear-gradient(
       var(--secondary-900),
       var(--secondary-800)
     );
     background-clip: text;
     -webkit-background-clip: text;
-    color: transparent;
-    letter-spacing: var(--letterSpacing);
 
     span {
       font-size: smaller;
@@ -91,6 +93,7 @@ const StyledHero = styled.section`
 
     h1 {
       margin-bottom: 1.75rem;
+      font-size: 3rem;
     }
 
     p {

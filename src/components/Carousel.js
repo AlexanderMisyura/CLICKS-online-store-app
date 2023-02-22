@@ -13,15 +13,15 @@ const Carousel = () => {
   const nextSlideIndex =
     activeSlideIndex + 1 > topRated.length - 1 ? 0 : activeSlideIndex + 1;
 
-  useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      setActiveSlideIndex(nextSlideIndex);
-    }, 3000);
+  // useEffect(() => {
+  //   const timeoutId = setTimeout(() => {
+  //     setActiveSlideIndex(nextSlideIndex);
+  //   }, 3000);
 
-    return () => {
-      clearTimeout(timeoutId);
-    };
-  }, [activeSlideIndex]);
+  //   return () => {
+  //     clearTimeout(timeoutId);
+  //   };
+  // }, [activeSlideIndex]);
 
   return (
     <div className="section section-center">
@@ -57,13 +57,13 @@ const Carousel = () => {
             }
             return (
               <article className={`${position} product`} key={id}>
-                <img
-                  className="img product-image"
-                  src={thumbnail}
-                  alt={title}
-                />
-                <Link className="product-title" to={`/products/${id}`}>
-                  {title}
+                <Link to={`/products/${id}`}>
+                  <img
+                    className="img product-image"
+                    src={thumbnail}
+                    alt={title}
+                  />
+                  <p className="product-title">{title}</p>
                 </Link>
                 <p className="product-price">${price}</p>
               </article>
@@ -84,12 +84,15 @@ const Carousel = () => {
 const StyledCarousel = styled.section`
   display: flex;
   width: 100%;
+  justify-content: center;
 
   position: relative;
 
   .products-container {
     width: 100%;
-    height: 60vh;
+    max-width: 800px;
+    height: 500px;
+    max-height: 55vh;
 
     overflow: hidden;
 
@@ -112,21 +115,23 @@ const StyledCarousel = styled.section`
     width: 100%;
     height: 100%;
     object-fit: cover;
+
+    border-radius: var(--borderRadius);
   }
 
   .product-title {
-    padding: 1rem;
+    padding: var(--element-padding);
     margin: 0;
 
     color: var(--secondary-200);
-    font-size: 2rem;
+    font-size: 1rem;
 
     background-color: #203b51b0;
     border-radius: var(--borderRadius);
 
     position: absolute;
-    top: 1rem;
-    left: 1rem;
+    top: 1%;
+    left: 1%;
   }
 
   .product-price {
@@ -149,23 +154,27 @@ const StyledCarousel = styled.section`
 
   .active-slide {
     display: block;
-    opacity: 1;
 
     transition: var(--transition);
 
     a {
-      display: inline-block;
+      display: block;
+      width: 100%;
+      height: 100%;
+
+      &:hover > p {
+        color: var(--secondary-500);
+        background-color: #4d6274b0;
+      }
     }
   }
 
   .prev-slide {
     display: block;
-    opacity: 0;
     transform: translate(-100%);
   }
   .next-slide {
     display: block;
-    opacity: 0;
     transform: translate(100%);
   }
 
@@ -179,6 +188,7 @@ const StyledCarousel = styled.section`
     cursor: pointer;
     background-color: transparent;
     border: none;
+    border-radius: var(--borderRadius);
 
     position: absolute;
     top: 0;
@@ -187,12 +197,23 @@ const StyledCarousel = styled.section`
 
     transition: var(--transition);
   }
+  .carousel-btn.prev {
+    left: 0;
+  }
   .carousel-btn.next {
     right: 0;
   }
 
   .carousel-btn:hover {
-    background-color: #00000005;
+    background-color: #00000010;
+  }
+
+  @media screen and (min-width: 550px) {
+    .product-title {
+      font-size: 1.25rem;
+      top: 1rem;
+      left: 1rem;
+    }
   }
 
   @media screen and (min-width: 992px) {
@@ -203,6 +224,11 @@ const StyledCarousel = styled.section`
 
     .product-price {
       font-size: 3rem;
+    }
+
+    .product-title {
+      font-size: 1.75rem;
+      padding: 0.75rem 1.5rem;
     }
   }
 `;

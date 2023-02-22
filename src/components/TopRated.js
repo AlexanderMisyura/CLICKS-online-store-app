@@ -16,7 +16,7 @@ const TopRated = () => {
   }
 
   return (
-    <StyledTopRated>
+    <StyledTopRated className="section">
       <h3 className="title">Top rated products</h3>
       <div className="title-underline"></div>
       <Carousel />
@@ -24,6 +24,8 @@ const TopRated = () => {
   );
 };
 
-const StyledTopRated = styled.section``;
+const StyledTopRated = styled.section`
+  background-color: var(--grey-400);
+`;
 
 export default TopRated;
