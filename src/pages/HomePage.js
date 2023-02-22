@@ -5,6 +5,7 @@ const HomePage = () => {
     <main>
       <Hero />
       <TopRated />
+      <TopDiscount />
     </main>
   );
 };

@@ -6,6 +6,7 @@ import Hero from "./Hero";
 import Loading from "./Loading";
 import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
+import TopDiscount from "./TopDiscount";
 import TopRated from "./TopRated";
 
 export {
@@ -17,5 +18,6 @@ export {
   Loading,
   Navbar,
   Sidebar,
+  TopDiscount,
   TopRated,
 };
