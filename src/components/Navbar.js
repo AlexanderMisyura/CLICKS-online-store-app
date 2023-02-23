@@ -13,7 +13,7 @@ const Navbar = () => {
 
   return (
     <StyledNav>
-      <div className="nav-content">
+      <div className="nav-content section-center">
         <div className="nav-logo">
           <Link to="/">
             <img src={logo} alt="clicks" />
@@ -49,11 +49,8 @@ const Navbar = () => {
 };
 
 const StyledNav = styled.nav`
-  max-width: calc(var(--max-width) + 2rem);
-  margin: 0 auto;
-
   position: sticky;
-  top: 1rem;
+  top: min(2.5vw, 1rem);
   z-index: 20;
 
   .nav-content {
@@ -61,7 +58,6 @@ const StyledNav = styled.nav`
     justify-content: space-between;
     align-items: center;
     height: 4.5rem;
-    margin: 0 1rem;
     padding: 0.75rem 1rem;
 
     background-color: var(--grey-50);
@@ -83,6 +79,7 @@ const StyledNav = styled.nav`
     border: none;
     color: var(--primary-500);
     cursor: pointer;
+
     svg {
       font-size: 2rem;
     }
@@ -100,6 +97,7 @@ const StyledNav = styled.nav`
     .btn-sidebar-open {
       display: none;
     }
+
     .nav-links {
       display: flex;
       li {
@@ -107,9 +105,13 @@ const StyledNav = styled.nav`
       }
       a {
         padding: 0.5rem;
-
         color: var(--grey-700);
         letter-spacing: var(--letterSpacing);
+
+        border: transparent;
+
+        transition: var(--transition);
+
         &.active {
           border-bottom: 1px solid var(--primary-400);
         }
@@ -122,19 +124,6 @@ const StyledNav = styled.nav`
       display: flex;
     }
   }
-
-  /* display: flex;
-  justify-content: space-around;
-  align-items: center;
-  height: 4.5rem;
-  max-width: var(--maxWidth);
-  margin: 1rem 1rem 0 1rem;
-
-  background-color: #fff;
-  border-radius: var(--borderRadius);
-
-  position: sticky;
-  z-index: 20; */
 `;
 
 export default Navbar;

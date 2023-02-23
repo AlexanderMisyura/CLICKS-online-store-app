@@ -4,7 +4,7 @@ import { SIDEBAR_OPEN, SIDEBAR_CLOSE } from "../actions";
 import reducer from "../reducers/sidebarReducer";
 
 const initialState = {
-  isSidebarOpen: true,
+  isSidebarOpen: false,
 };
 
 export const SidebarContext = React.createContext();

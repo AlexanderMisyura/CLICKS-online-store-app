@@ -13,7 +13,13 @@ const Sidebar = () => {
 
   return (
     <SidebarContainer>
-      <aside className={isSidebarOpen ? "sidebar sidebar-show" : "sidebar"}>
+      <aside
+        className={
+          isSidebarOpen
+            ? "section-center sidebar sidebar-show"
+            : "section-center sidebar"
+        }
+      >
         <div className="sidebar-header">
           <img className="sidebar-logo" src={logo} alt="clicks" />
           <button
@@ -50,9 +56,7 @@ const SidebarContainer = styled.div`
   text-align: center;
 
   .sidebar {
-    width: calc(100% - 2rem);
     height: fit-content;
-    margin: 1rem;
 
     opacity: 0;
     background-color: var(--grey-50);
@@ -60,12 +64,12 @@ const SidebarContainer = styled.div`
     box-shadow: var(--shadow-m);
 
     position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -1;
+    top: min(2.5vw, 1rem);
+    left: calc(2.5vw - 1px);
+    right: calc(2.5vw - 1px);
 
     transition: var(--transition);
-    transform: translate(0, calc(100vh));
+    transform: translate(0, -100vh);
   }
 
   .sidebar-header {
