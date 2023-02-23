@@ -62,6 +62,7 @@ const StyledFooter = styled.footer`
     a {
       font-size: 2rem;
       color: var(--secondary-800);
+      transition: var(--transition);
     }
     a:hover {
       color: var(--secondary-700);

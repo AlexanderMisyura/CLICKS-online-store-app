@@ -13,15 +13,15 @@ const Carousel = () => {
   const nextSlideIndex =
     activeSlideIndex + 1 > topRated.length - 1 ? 0 : activeSlideIndex + 1;
 
-  // useEffect(() => {
-  //   const timeoutId = setTimeout(() => {
-  //     setActiveSlideIndex(nextSlideIndex);
-  //   }, 3000);
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setActiveSlideIndex(nextSlideIndex);
+    }, 5000);
 
-  //   return () => {
-  //     clearTimeout(timeoutId);
-  //   };
-  // }, [activeSlideIndex]);
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, [activeSlideIndex, nextSlideIndex]);
 
   return (
     <div className="section section-center">
@@ -35,15 +35,8 @@ const Carousel = () => {
         <div className="products-container">
           {topRated.map((product, i) => {
             const {
-              brand,
-              category,
-              description,
-              discountPercentage,
               id,
-              images,
               price,
-              rating,
-              stock,
               thumbnail,
               title,
             } = product;
@@ -123,15 +116,17 @@ const StyledCarousel = styled.section`
     padding: var(--element-padding);
     margin: 0;
 
-    color: var(--secondary-200);
+    color: var(--secondary-300);
     font-size: 1rem;
 
-    background-color: #203b51b0;
+    background-color: #798997c7;
     border-radius: var(--borderRadius);
 
     position: absolute;
     top: 1%;
     left: 1%;
+
+    transition: var(--transition);
   }
 
   .product-price {
@@ -162,9 +157,9 @@ const StyledCarousel = styled.section`
       width: 100%;
       height: 100%;
 
-      &:hover > p {
+      &:hover > .product-title {
         color: var(--secondary-500);
-        background-color: #4d6274b0;
+        background-color: #4d6274d1;
       }
     }
   }

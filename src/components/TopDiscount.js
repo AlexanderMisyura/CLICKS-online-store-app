@@ -20,27 +20,18 @@ const TopDiscount = () => {
       <h3 className="title">best store discounts</h3>
       <div className="title-underline"></div>
       <div className="section-center products-container">
-        {topDiscount.map((product) => {
-          const {
-            brand,
-            category,
-            description,
-            discountPercentage,
-            id,
-            images,
-            price,
-            rating,
-            stock,
-            thumbnail,
-            title,
-          } = product;
+        {topDiscount.slice(0, 6).map((product) => {
+          const { discountPercentage, id, price, thumbnail, title } = product;
           return (
             <article className="product" key={id}>
               <Link to={`/products/${id}`}>
                 <div className="corner">
                   <span>{discountPercentage}% OFF</span>
                 </div>
-                <img className="img" src={thumbnail} alt={title} />
+                <div className="shade"></div>
+                <div className="image-container">
+                  <img className="img" src={thumbnail} alt={title} />
+                </div>
                 <footer>
                   <span className="name">{title}</span>
                   <span className="price">${price}</span>
@@ -57,49 +48,71 @@ const TopDiscount = () => {
 const StyledTopDiscount = styled.section`
   .products-container {
     display: grid;
-    gap: 2rem;
+    gap: 2.1rem;
     margin: 4rem auto;
   }
   .product {
     overflow: hidden;
+
     a {
       display: block;
       position: relative;
 
-      background-color: var(--black);
       border-radius: calc(var(--borderRadius) + 1px);
+      transition: var(--transition);
     }
-    &:hover img {
-      opacity: 0.7;
+    &:hover .shade {
+      background-color: #2222223d;
     }
     &:hover footer {
       background-color: var(--primary-400);
+      .name {
+        color: var(--secondary-300);
+      }
+      .price {
+        color: var(--secondary-500);
+      }
     }
-    &:hover .name {
-      color: var(--secondary-300);
-    }
-    &:hover .price {
-      color: var(--secondary-500);
-    }
-    img {
+    .shade {
+      position: absolute;
+      width: 100%;
       height: 250px;
+
+      background-color: transparent;
+
+      transition: var(--transition);
+      z-index: 10;
+    }
+
+    .image-container {
+      height: 250px;
+
       border-top-left-radius: var(--borderRadius);
       border-top-right-radius: var(--borderRadius);
+
+      position: relative;
+
       transition: var(--transition);
+
+      img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
     }
   }
 
   .corner {
-    position: absolute;
     width: 10rem;
     height: 10rem;
 
     text-align: center;
     background-color: var(--red-dark);
 
+    position: absolute;
     top: -5rem;
     left: -5rem;
-    z-index: 10;
+    z-index: 15;
 
     transform: rotate(315deg);
     span {
@@ -111,6 +124,7 @@ const StyledTopDiscount = styled.section`
       position: absolute;
       bottom: 0;
       left: 50%;
+
       transform: translate(-50%);
     }
   }
@@ -146,9 +160,11 @@ const StyledTopDiscount = styled.section`
   .price {
     font-size: 1.25rem;
     color: var(--secondary-300);
+
     position: absolute;
     bottom: 50%;
     right: 1rem;
+
     transform: translate(0, 50%);
   }
 
