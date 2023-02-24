@@ -67,6 +67,7 @@ const SidebarContainer = styled.div`
     top: min(2.5vw, 1rem);
     left: calc(2.5vw - 1px);
     right: calc(2.5vw - 1px);
+    z-index: 99;
 
     transition: var(--transition);
     transform: translate(0, -100vh);
@@ -121,7 +122,6 @@ const SidebarContainer = styled.div`
   .sidebar-show {
     opacity: 1;
     transform: translate(0);
-    z-index: 99;
   }
 
   @media screen and (min-width: 992px) {

@@ -94,6 +94,24 @@ html {
 ###  GLOBAL STYLES  ###
 */
 
+:root::-webkit-scrollbar {
+  width: 0.7em;
+}
+:root::-webkit-scrollbar-track {
+  background: var(--primary-100);
+}
+:root::-webkit-scrollbar-thumb {
+  background: var(--primary-200);
+  border-radius: var(--borderRadius);
+  border: 1px solid var(--primary-100);
+}
+:root::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-300);
+}
+:root::-webkit-scrollbar-thumb:active {
+  background: var(--primary-400);
+}
+
 body {
   color: var(--textColor);
   font-weight: 400;
@@ -324,3 +342,5 @@ ul {
     width: 95vw;
   }
 }
+
+/* scrollbar */
