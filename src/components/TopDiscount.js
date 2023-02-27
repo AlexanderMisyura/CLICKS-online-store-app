@@ -53,12 +53,12 @@ const StyledTopDiscount = styled.section`
   }
   .product {
     overflow: hidden;
+    border-radius: var(--borderRadius);
 
     a {
       display: block;
       position: relative;
 
-      border-radius: calc(var(--borderRadius) + 1px);
       transition: var(--transition);
     }
     &:hover .shade {
@@ -86,12 +86,7 @@ const StyledTopDiscount = styled.section`
 
     .image-container {
       height: 250px;
-
-      border-top-left-radius: var(--borderRadius);
-      border-top-right-radius: var(--borderRadius);
-
       position: relative;
-
       transition: var(--transition);
 
       img {
@@ -134,8 +129,6 @@ const StyledTopDiscount = styled.section`
     letter-spacing: var(--letterSpacing);
 
     background-color: var(--primary-300);
-    border-bottom-left-radius: var(--borderRadius);
-    border-bottom-right-radius: var(--borderRadius);
 
     position: relative;
 
