@@ -1,4 +1,4 @@
-import { Hero, TopDiscount, TopRated } from "../components";
+import { Hero,Services, TopDiscount, TopRated } from "../components";
 
 const HomePage = () => {
   return (
@@ -6,6 +6,7 @@ const HomePage = () => {
       <Hero />
       <TopRated />
       <TopDiscount />
+      <Services />
     </main>
   );
 };
