@@ -5,6 +5,7 @@ import Footer from "./Footer";
 import Hero from "./Hero";
 import Loading from "./Loading";
 import Navbar from "./Navbar";
+import Product from "./Product";
 import Services from "./Services";
 import Sidebar from "./Sidebar";
 import TopDiscount from "./TopDiscount";
@@ -18,6 +19,7 @@ export {
   Hero,
   Loading,
   Navbar,
+  Product,
   Services,
   Sidebar,
   TopDiscount,
