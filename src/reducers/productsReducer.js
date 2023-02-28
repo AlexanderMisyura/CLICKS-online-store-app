@@ -10,10 +10,10 @@ const productsReducer = (state, action) => {
       return { ...state, productsLoading: true, productsError: false };
 
     case GET_PRODUCTS_SUCCESS:
-      const topRated = action.payload
+      const topRated = [...action.payload]
         .sort((a, b) => b.rating - a.rating)
         .slice(0, 10);
-      const topDiscount = action.payload
+      const topDiscount = [...action.payload]
         .sort((a, b) => b.discountPercentage - a.discountPercentage)
         .slice(0, 10);
       return {
