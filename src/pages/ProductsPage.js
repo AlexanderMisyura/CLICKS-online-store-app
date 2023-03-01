@@ -5,7 +5,7 @@ import { Loading, Error, AllProducts, Filters, Sorting } from "../components";
 import { useProductsContext } from "../context/productsContext";
 
 const ProductsPage = () => {
-  const { products, productsLoading, productsError } = useProductsContext();
+  const { productsLoading, productsError } = useProductsContext();
 
   return (
     <main>
@@ -15,7 +15,7 @@ const ProductsPage = () => {
         ) : productsError ? (
           <Error />
         ) : (
-          <section className="section section-center">
+          <section className="section section-center products">
             <Filters />
             <div>
               <Sorting />
@@ -29,10 +29,16 @@ const ProductsPage = () => {
 };
 
 const StyledProductPage = styled.div`
-  /* .products {
+  .products {
     display: grid;
     gap: 2rem;
-  } */
+  }
+
+  @media (min-width: 768px) {
+    .products {
+      grid-template-columns: 200px 1fr;
+    }
+  }
 `;
 
 export default ProductsPage;
