@@ -47,7 +47,6 @@ const StyledProduct = styled.article`
   .shade {
     position: absolute;
     width: 100%;
-    height: 250px;
 
     background-color: transparent;
 
@@ -56,7 +55,6 @@ const StyledProduct = styled.article`
   }
 
   .image-container {
-    height: 250px;
     position: relative;
     transition: var(--transition);
 

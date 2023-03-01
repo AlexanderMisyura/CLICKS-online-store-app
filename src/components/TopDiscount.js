@@ -19,7 +19,7 @@ const TopDiscount = () => {
     <StyledTopDiscount className="section">
       <h3 className="title">best store discounts</h3>
       <div className="title-underline"></div>
-      <div className="section-center products-container">
+      <div className="section-center top-discount-products">
         {topDiscount.slice(0, 6).map((product) => (
           <Product key={product.id} product={product} />
         ))}
@@ -29,14 +29,19 @@ const TopDiscount = () => {
 };
 
 const StyledTopDiscount = styled.section`
-  .products-container {
+  .top-discount-products {
     display: grid;
     gap: 2.1rem;
     margin: 4rem auto;
+
+    .shade,
+    .image-container {
+      height: 220px;
+    }
   }
 
   @media (min-width: 576px) {
-    .products-container {
+    .top-discount-products {
       grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     }
   }
