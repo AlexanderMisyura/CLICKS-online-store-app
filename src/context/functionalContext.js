@@ -5,12 +5,15 @@ import {
   SIDEBAR_CLOSE,
   FILTER_OPEN,
   FILTER_CLOSE,
+  SET_VIEW_TILES,
+  SET_VIEW_LIST,
 } from "../actions";
 import reducer from "../reducers/functionalReducer";
 
 const initialState = {
   isSidebarOpen: false,
   isFilterOpen: false,
+  productsView: "tiles",
 };
 
 export const FunctionalContext = React.createContext();
@@ -32,9 +35,24 @@ export const FunctionalProvider = ({ children }) => {
     dispatch({ type: FILTER_CLOSE });
   };
 
+  const setViewList = () => {
+    dispatch({ type: SET_VIEW_LIST });
+  };
+  const setViewTiles = () => {
+    dispatch({ type: SET_VIEW_TILES });
+  };
+
   return (
     <FunctionalContext.Provider
-      value={{ ...state, openSidebar, closeSidebar, openFilter, closeFilter }}
+      value={{
+        ...state,
+        openSidebar,
+        closeSidebar,
+        openFilter,
+        closeFilter,
+        setViewList,
+        setViewTiles,
+      }}
     >
       {children}
     </FunctionalContext.Provider>

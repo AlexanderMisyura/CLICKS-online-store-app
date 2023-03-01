@@ -2,7 +2,8 @@ export const SIDEBAR_OPEN = "SIDEBAR_OPEN";
 export const SIDEBAR_CLOSE = "SIDEBAR_CLOSE";
 export const FILTER_OPEN = "FILTER_OPEN";
 export const FILTER_CLOSE = "FILTER_CLOSE";
-
+export const SET_VIEW_LIST = "SET_VIEW_LIST";
+export const SET_VIEW_TILES = "SET_VIEW_TILES";
 
 export const GET_PRODUCTS_START = "GET_PRODUCTS_START";
 export const GET_PRODUCTS_SUCCESS = "GET_PRODUCTS_SUCCESS";
