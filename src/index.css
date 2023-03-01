@@ -343,4 +343,7 @@ ul {
   }
 }
 
-/* scrollbar */
+.full-page {
+  /* view height - navbar - footer) */
+  min-height: calc(100vh - 4.5rem - 10rem);
+}
