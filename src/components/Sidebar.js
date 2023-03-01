@@ -4,10 +4,10 @@ import { BsX } from "react-icons/bs";
 
 import logo from "../assets/clicks-base-logo.png";
 import CartButtons from "./CartButtons";
-import { useSidebarContext } from "../context/sidebarContext";
+import { useFunctionalContext } from "../context/functionalContext";
 
 const Sidebar = () => {
-  const { isSidebarOpen, closeSidebar } = useSidebarContext();
+  const { isSidebarOpen, closeSidebar } = useFunctionalContext();
   // user context
   const loggedUser = true;
 

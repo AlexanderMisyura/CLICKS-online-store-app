@@ -4,10 +4,10 @@ import { HiBars4 } from "react-icons/hi2";
 
 import logo from "../assets/clicks-base-logo.png";
 import CartButtons from "./CartButtons";
-import { useSidebarContext } from "../context/sidebarContext";
+import { useFunctionalContext } from "../context/functionalContext";
 
 const Navbar = () => {
-  const { openSidebar } = useSidebarContext();
+  const { openSidebar } = useFunctionalContext();
   // user context
   const loggedUser = true;
 
