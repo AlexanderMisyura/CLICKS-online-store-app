@@ -264,7 +264,8 @@ ul {
   letter-spacing: var(--letterSpacing);
 }
 .form-input,
-.form-textarea {
+.form-textarea,
+select {
   width: 100%;
   padding: var(--element-padding);
 
