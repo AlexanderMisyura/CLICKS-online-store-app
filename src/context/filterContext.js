@@ -23,6 +23,7 @@ const initialState = {
     minPriceValue: 0,
     maxPrice: 0,
     maxPriceValue: 0,
+    rating: 0,
   },
 };
 
@@ -45,8 +46,8 @@ export const FilterProvider = ({ children }) => {
   };
 
   const updateFilters = (e) => {
-    const filterName = e.target.name;
-    const filterValue = e.target.value;
+    const filterName = e.currentTarget.name;
+    const filterValue = e.currentTarget.value;
     dispatch({ type: UPDATE_FILTERS, payload: { [filterName]: filterValue } });
   };
 

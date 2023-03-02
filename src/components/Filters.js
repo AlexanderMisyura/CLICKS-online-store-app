@@ -5,6 +5,8 @@ import {
   BsChevronDoubleUp,
 } from "react-icons/bs";
 
+import RatingFilter from "./RatingFilter";
+
 import { useFilterContext } from "../context/filterContext";
 import { useFunctionalContext } from "../context/functionalContext";
 import { getFilterValues } from "../utils";
@@ -104,7 +106,10 @@ const Filters = () => {
                 />
               </div>
             </div>
-            <div className="form-control"></div>
+            <div className="form-control">
+              <h5>Rating</h5>
+              <RatingFilter />
+            </div>
             <div className="form-control"></div>
           </form>
           <button className="btn">clear</button>
@@ -180,7 +185,6 @@ const StyledFilters = styled.section`
   .btn--filters {
     display: flex;
     align-items: center;
-    /* padding: 0.7rem 1.5rem; */
 
     color: var(--primary-500);
     font-size: 1rem;
@@ -197,6 +201,7 @@ const StyledFilters = styled.section`
       font-size: 1.2rem;
     }
   }
+
   .btn--filters-collapse {
     background-color: var(--grey-50);
     background-image: none;

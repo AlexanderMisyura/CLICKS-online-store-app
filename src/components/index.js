@@ -8,6 +8,7 @@ import Hero from "./Hero";
 import Loading from "./Loading";
 import Navbar from "./Navbar";
 import Product from "./Product";
+import RatingFilter from "./RatingFilter";
 import Services from "./Services";
 import Sidebar from "./Sidebar";
 import Sorting from "./Sorting";
@@ -27,6 +28,7 @@ export {
   Loading,
   Navbar,
   Product,
+  RatingFilter,
   Services,
   Sidebar,
   Sorting,
