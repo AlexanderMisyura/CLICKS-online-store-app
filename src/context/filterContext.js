@@ -16,8 +16,8 @@ const initialState = {
   allProducts: [],
   sortBy: "rating-high",
   filters: {
-    brand: "all",
-    category: "all",
+    brand: [],
+    category: [],
     search: "",
     minPrice: 0,
     minPriceValue: 0,
@@ -41,7 +41,7 @@ export const FilterProvider = ({ children }) => {
     dispatch({ type: CLEAR_ALL_FILTERS });
   };
   const clearSpecificFilter = (e) => {
-    const filterName = e.target.name;
+    const filterName = e.currentTarget.dataset.filterValue;
     dispatch({ type: CLEAR_SPECIFIC_FILTER, payload: filterName });
   };
 

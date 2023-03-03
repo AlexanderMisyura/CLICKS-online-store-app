@@ -20,8 +20,6 @@ export const getFilterValues = (products) => {
   filterValues.allBrands = [...new Set(filterValues.allBrands)].sort((a, b) =>
     a.toLowerCase().localeCompare(b.toLowerCase())
   );
-  filterValues.allCategories.unshift("ALL");
-  filterValues.allBrands.unshift("ALL");
 
   return filterValues;
 };
