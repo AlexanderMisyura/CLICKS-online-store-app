@@ -32,17 +32,25 @@ const Sidebar = () => {
         </div>
         <ul className="sidebar-links">
           <li>
-            <Link to="/">Home</Link>
+            <Link onClick={closeSidebar} to="/">
+              Home
+            </Link>
           </li>
           <li>
-            <Link to="/about">About us</Link>
+            <Link onClick={closeSidebar} to="/about">
+              About us
+            </Link>
           </li>
           <li>
-            <Link to="/products">Products</Link>
+            <Link onClick={closeSidebar} to="/products">
+              Products
+            </Link>
           </li>
           {loggedUser && (
             <li>
-              <Link to="/checkout">Checkout</Link>
+              <Link onClick={closeSidebar} to="/checkout">
+                Checkout
+              </Link>
             </li>
           )}
         </ul>
