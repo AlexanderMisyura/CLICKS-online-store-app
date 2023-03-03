@@ -6,6 +6,7 @@ import {
 } from "react-icons/bs";
 
 import RatingFilter from "./RatingFilter";
+import SelectFilter from "./SelectFilter";
 
 import { useFilterContext } from "../context/filterContext";
 import { useFunctionalContext } from "../context/functionalContext";
@@ -40,29 +41,11 @@ const Filters = () => {
                 placeholder="search"
               />
             </div>
+
             <div className="form-control">
-              <h5 className="title-item">
-                category
-                <BsTrash
-                  onClick={clearSpecificFilter}
-                  data-filter-value="category"
-                />
-              </h5>
-              <select
-                // onChange={}
-                // value={}
-                className="category"
-                name="category"
-              >
-                {allCategories.map((category) => {
-                  return (
-                    <option value={category} key={category}>
-                      {category}
-                    </option>
-                  );
-                })}
-              </select>
+              <SelectFilter filterTitle="category" filter="category" items={allCategories} />
             </div>
+
             <div className="form-control">
               <h5 className="title-item">
                 brand

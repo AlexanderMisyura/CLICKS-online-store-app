@@ -9,6 +9,7 @@ import Loading from "./Loading";
 import Navbar from "./Navbar";
 import Product from "./Product";
 import RatingFilter from "./RatingFilter";
+import SelectFilter from "./SelectFilter";
 import Services from "./Services";
 import Sidebar from "./Sidebar";
 import Sorting from "./Sorting";
@@ -29,6 +30,7 @@ export {
   Navbar,
   Product,
   RatingFilter,
+  SelectFilter,
   Services,
   Sidebar,
   Sorting,
