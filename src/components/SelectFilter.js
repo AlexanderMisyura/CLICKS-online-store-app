@@ -34,7 +34,7 @@ const SelectFilter = ({ filterTitle, filter, items }) => {
         <RiFilterOffLine
           className="reset-icon"
           onClick={clearSpecificFilter}
-          data-filter-value="category"
+          data-filter-value={filter}
           title="reset filter"
         />
       </div>
