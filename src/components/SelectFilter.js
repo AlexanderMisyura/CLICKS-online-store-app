@@ -166,6 +166,10 @@ const StyledSelect = styled.div`
       }
     }
 
+    .drop-list {
+      font-size: var(--fontSizeTextSmall);
+    }
+
     .items {
       flex-direction: column;
       gap: 0;

@@ -29,7 +29,11 @@ const Filters = () => {
   return (
     <StyledFilters>
       <div className="filters-wrapper">
-        <div className={isFilterOpen ? "filters" : "filters filters--collapse"}>
+        <div
+          className={
+            isFilterOpen ? "filters scroll" : "filters filters--collapse scroll"
+          }
+        >
           <form onSubmit={(e) => e.preventDefault()}>
             <div className="form-control">
               <input
@@ -43,7 +47,18 @@ const Filters = () => {
             </div>
 
             <div className="form-control">
-              <SelectFilter filterTitle="category" filter="category" items={allCategories} />
+              <SelectFilter
+                filterTitle="category"
+                filter="category"
+                items={allCategories}
+              />
+            </div>
+            <div className="form-control">
+              <SelectFilter
+                filterTitle="brand"
+                filter="brand"
+                items={allBrands}
+              />
             </div>
 
             <div className="form-control">
@@ -120,18 +135,32 @@ const StyledFilters = styled.section`
     position: fixed;
     top: calc(4.5rem + min(5vw, calc(2rem)));
     z-index: 20;
+
+    /* fix small screen */
+    /* padding: 0.75rem 1rem;
+    background-color: var(--grey-50);
+    box-shadow: var(--shadow-m);
+    border-radius: var(--borderRadius);
+    width: 90vw; */
   }
 
   .filters {
     padding: 0.75rem 1rem;
     width: 90vw;
+    max-height: calc(100vh - calc(5.75rem + min(2.5vw, 1rem)) - 1rem - 31px);
     overflow: hidden;
+    /* fix small screen */
+    /* overflow-y: auto; */
 
     background-color: var(--grey-50);
     border-radius: var(--borderRadius);
     box-shadow: var(--shadow-m);
 
     transition: var(--transition);
+
+    /* fix small screen */
+    /* width: 100%;
+    box-shadow: none; */
   }
 
   .filters--collapse {
@@ -196,10 +225,12 @@ const StyledFilters = styled.section`
       top: calc(5.75rem + min(2.5vw, 1rem));
       .filters {
         width: 100%;
-        padding: 0;
+        padding: 0 1rem 0 0;
+        max-height: calc(100vh - calc(5.75rem + min(2.5vw, 1rem)) - 1rem);
 
         background: none;
         box-shadow: none;
+        overflow-y: auto;
       }
     }
     .filters--collapse {

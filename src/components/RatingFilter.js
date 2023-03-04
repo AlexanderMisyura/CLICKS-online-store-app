@@ -73,5 +73,11 @@ const StyledStars = styled.div`
   .star--light {
     color: var(--secondary-300);
   }
+
+  @media (min-width: 768px) {
+    .star {
+      font-size: 1.9rem;
+    }
+  }
 `;
 export default RatingFilter;
