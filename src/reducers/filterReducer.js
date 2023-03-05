@@ -1,7 +1,6 @@
 import {
   INITIAL_PRODUCTS_LOAD,
   CLEAR_ALL_FILTERS,
-  CLEAR_SPECIFIC_FILTER,
   UPDATE_FILTERS,
   FILTER_PRODUCTS,
   UPDATE_SORT,
@@ -21,9 +20,9 @@ const filterReducer = (state, action) => {
         filters: {
           ...state.filters,
           minPrice,
-          minPriceValue: minPrice,
+          minPriceFilter: minPrice,
           maxPrice,
-          maxPriceValue: maxPrice,
+          maxPriceFilter: maxPrice,
         },
       };
 
@@ -32,22 +31,13 @@ const filterReducer = (state, action) => {
         ...state,
         filters: {
           ...state.filters,
-          brand: "all",
-          category: "all",
+          brand: [],
+          category: [],
           search: "",
-          minPrice: 0,
-          minPriceValue: 0,
-          maxPrice: 0,
-          maxPriceValue: state.filters.maxPrice,
+          minPriceFilter: state.filters.minPrice,
+          maxPriceFilter: state.filters.maxPrice,
           rating: 0,
         },
-      };
-
-    case CLEAR_SPECIFIC_FILTER:
-      const filterName = action.payload;
-      console.log("filterName clear", filterName);
-      return {
-        ...state,
       };
 
     case UPDATE_FILTERS:

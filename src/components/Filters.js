@@ -19,7 +19,6 @@ const Filters = () => {
     filters,
     allProducts,
     clearFilters,
-    clearSpecificFilter,
     updateFilters,
     updateSort,
   } = useFilterContext();
@@ -27,25 +26,34 @@ const Filters = () => {
   const { allCategories, allBrands } = getFilterValues(allProducts);
 
   const {
-    brand,
-    category,
     search,
     minPrice,
     maxPrice,
-    minPriceValue,
-    maxPriceValue,
+    minPriceFilter,
+    maxPriceFilter,
   } = filters;
 
+  const searchElement = useRef(null);
   const minPriceElement = useRef(null);
   const maxPriceElement = useRef(null);
 
+  const clearSearchFilter = () => {
+    searchElement.current.value = "";
+    updateFilters({ search: "" });
+  };
   const clearPriceFilters = () => {
     minPriceElement.current.value = "";
     maxPriceElement.current.value = "";
     updateFilters({
-      minPrice: minPriceValue,
-      maxPrice: maxPriceValue,
+      minPriceFilter: minPrice,
+      maxPriceFilter: maxPrice,
     });
+  };
+  const clearAllFilters = () => {
+    searchElement.current.value = "";
+    minPriceElement.current.value = "";
+    maxPriceElement.current.value = "";
+    clearFilters();
   }
 
   return (
@@ -60,13 +68,20 @@ const Filters = () => {
         >
           <form onSubmit={(e) => e.preventDefault()}>
             <div className="form-control">
+              <div className="filter-heading">
+                <h5>search</h5>
+                <RiFilterOffLine
+                  onClick={clearSearchFilter}
+                  className="reset-icon"
+                  title="reset filter"
+                />
+              </div>
               <input
-                // onChange={}
-                // value={}
+                onChange={(e) => updateFilters({ search: e.target.value })}
+                ref={searchElement}
                 className="form-input"
                 type="text"
-                name="search"
-                placeholder="search"
+                placeholder="shoes"
               />
             </div>
 
@@ -97,22 +112,22 @@ const Filters = () => {
               <div className="price-control">
                 <input
                   onChange={(e) =>
-                    updateFilters({ minPrice: Number(e.target.value) })
+                    updateFilters({ minPriceFilter: Number(e.target.value) })
                   }
                   ref={minPriceElement}
                   className="form-input"
                   type="text"
-                  placeholder={minPriceValue}
+                  placeholder={minPrice}
                 />
                 <span>&#x2013;</span>
                 <input
                   onChange={(e) =>
-                    updateFilters({ maxPrice: Number(e.target.value) })
+                    updateFilters({ maxPriceFilter: Number(e.target.value) })
                   }
                   ref={maxPriceElement}
                   className="form-input"
                   type="text"
-                  placeholder={maxPriceValue}
+                  placeholder={maxPrice}
                 />
               </div>
             </div>
@@ -120,7 +135,7 @@ const Filters = () => {
               <div className="filter-heading">
                 <h5>rating</h5>
                 <RiFilterOffLine
-                  onClick={() => updateFilters({rating: 0})}
+                  onClick={() => updateFilters({ rating: 0 })}
                   className="reset-icon"
                   title="reset filter"
                 />
@@ -129,7 +144,9 @@ const Filters = () => {
             </div>
             <div className="form-control"></div>
           </form>
-          <button className="btn">clear</button>
+          <button onClick={clearAllFilters} className="btn">
+            clear
+          </button>
         </div>
         <div>
           <button
@@ -193,8 +210,8 @@ const StyledFilters = styled.section`
       margin-bottom: 0;
     }
   }
-  input,
-  select {
+  input {
+    color: var(--grey-300);
     font-size: 1.25rem;
   }
 

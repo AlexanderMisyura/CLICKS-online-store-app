@@ -3,7 +3,6 @@ import reducer from "../reducers/filterReducer";
 import {
   INITIAL_PRODUCTS_LOAD,
   CLEAR_ALL_FILTERS,
-  CLEAR_SPECIFIC_FILTER,
   UPDATE_FILTERS,
   FILTER_PRODUCTS,
   UPDATE_SORT,
@@ -20,9 +19,9 @@ const initialState = {
     category: [],
     search: "",
     minPrice: 0,
-    minPriceValue: 0,
+    minPriceFilter: 0,
     maxPrice: 0,
-    maxPriceValue: 0,
+    maxPriceFilter: 0,
     rating: 0,
   },
 };
@@ -39,10 +38,6 @@ export const FilterProvider = ({ children }) => {
 
   const clearFilters = () => {
     dispatch({ type: CLEAR_ALL_FILTERS });
-  };
-  const clearSpecificFilter = (e) => {
-    const filterName = e.currentTarget.dataset.filterValue;
-    dispatch({ type: CLEAR_SPECIFIC_FILTER, payload: filterName });
   };
 
   const updateFilters = (filters) => {
@@ -64,7 +59,6 @@ export const FilterProvider = ({ children }) => {
       value={{
         ...state,
         clearFilters,
-        clearSpecificFilter,
         updateFilters,
         updateSort,
       }}

@@ -24,7 +24,6 @@ const SelectFilter = ({ filterTitle, filterName, items }) => {
     const newState = [...selected, newFilterValue].sort((a, b) =>
       a.localeCompare(b)
     );
-    console.log("newState", filterName, ": ", newState);
     setSelected(newState);
   };
   const removeFromSelected = (e) => {
