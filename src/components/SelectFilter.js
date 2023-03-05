@@ -34,7 +34,7 @@ const SelectFilter = ({ filterTitle, filterName, items }) => {
   };
 
   useEffect(() => {
-    updateFilters(filterName, selected);
+    updateFilters({[filterName]: selected});
   }, [selected]);
 
   return (
@@ -52,7 +52,6 @@ const SelectFilter = ({ filterTitle, filterName, items }) => {
         <RiFilterOffLine
           className="reset-icon"
           onClick={() => setSelected([])}
-          data-filter-name={filterName}
           title="reset filter"
         />
       </div>

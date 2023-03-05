@@ -45,8 +45,8 @@ export const FilterProvider = ({ children }) => {
     dispatch({ type: CLEAR_SPECIFIC_FILTER, payload: filterName });
   };
 
-  const updateFilters = (filterName, filterValue) => {
-    dispatch({ type: UPDATE_FILTERS, payload: { [filterName]: filterValue } });
+  const updateFilters = (filters) => {
+    dispatch({ type: UPDATE_FILTERS, payload: filters });
   };
 
   const updateSort = (e) => {
