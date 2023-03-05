@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import {
   RxTriangleRight,
@@ -10,14 +10,32 @@ import { RiFilterOffLine } from "react-icons/ri";
 
 import { useFilterContext } from "../context/filterContext";
 
-const SelectFilter = ({ filterTitle, filter, items }) => {
+const SelectFilter = ({ filterTitle, filterName, items }) => {
   const [isExpand, setIsExpand] = useState(false);
   const [selected, setSelected] = useState([]);
-  const { filters, updateFilters, clearSpecificFilter } = useFilterContext();
+  const { filters, updateFilters } = useFilterContext();
 
   const toggleDropDown = () => {
     setIsExpand(!isExpand);
   };
+
+  const addToSelected = (e) => {
+    const newFilterValue = e.currentTarget.dataset.filterValue;
+    const newState = [...selected, newFilterValue].sort((a, b) =>
+      a.localeCompare(b)
+    );
+    console.log("newState", filterName, ": ", newState);
+    setSelected(newState);
+  };
+  const removeFromSelected = (e) => {
+    const removedFilterValue = e.currentTarget.dataset.filterValue;
+    const newState = [...selected.filter((item) => item !== removedFilterValue)];
+    setSelected(newState);
+  };
+
+  useEffect(() => {
+    updateFilters(filterName, selected);
+  }, [selected]);
 
   return (
     <StyledSelect>
@@ -33,8 +51,8 @@ const SelectFilter = ({ filterTitle, filter, items }) => {
         </div>
         <RiFilterOffLine
           className="reset-icon"
-          onClick={clearSpecificFilter}
-          data-filter-value={filter}
+          onClick={() => setSelected([])}
+          data-filter-name={filterName}
           title="reset filter"
         />
       </div>
@@ -47,8 +65,14 @@ const SelectFilter = ({ filterTitle, filter, items }) => {
           }
         >
           {!isExpand &&
-            filters[filter].map((item) => (
-              <div className="item" key={item} title="remove from filter">
+            filters[filterName].map((item) => (
+              <div
+                onClick={removeFromSelected}
+                data-filter-value={item}
+                className="item"
+                key={item}
+                title="remove from filter"
+              >
                 <span>{item}</span>
                 <RxCross1 />
               </div>
@@ -61,9 +85,15 @@ const SelectFilter = ({ filterTitle, filter, items }) => {
         >
           {isExpand &&
             items.map((item) => {
-              if (!filters[filter].includes(item)) {
+              if (!filters[filterName].includes(item)) {
                 return (
-                  <div className="item" key={item} title="add to filter">
+                  <div
+                    onClick={addToSelected}
+                    data-filter-value={item}
+                    className="item"
+                    key={item}
+                    title="add to filter"
+                  >
                     <span>{item}</span>
                     <RxPlus />
                   </div>

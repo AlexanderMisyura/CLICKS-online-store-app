@@ -51,41 +51,18 @@ const Filters = () => {
             <div className="form-control">
               <SelectFilter
                 filterTitle="category"
-                filter="category"
+                filterName="category"
                 items={allCategories}
               />
             </div>
             <div className="form-control">
               <SelectFilter
                 filterTitle="brand"
-                filter="brand"
+                filterName="brand"
                 items={allBrands}
               />
             </div>
 
-            <div className="form-control">
-              <h5 className="title-item">
-                brand
-                <BsTrash
-                  onClick={clearSpecificFilter}
-                  data-filter-value="brand"
-                />
-              </h5>
-              <select
-                // onChange={}
-                // value={}
-                className="category"
-                name="category"
-              >
-                {allBrands.map((brand) => {
-                  return (
-                    <option value={brand} key={brand}>
-                      {brand}
-                    </option>
-                  );
-                })}
-              </select>
-            </div>
             <div className="form-control">
               <h5>price</h5>
               <div className="price-control">
@@ -161,7 +138,6 @@ const StyledFilters = styled.section`
     overflow-y: auto;
 
     transition: var(--transition);
-
   }
 
   .filters--collapse {

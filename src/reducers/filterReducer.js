@@ -47,12 +47,12 @@ const filterReducer = (state, action) => {
       };
 
     case UPDATE_FILTERS:
-      const updatedFilter = action.payload;
+      const updatedFilters = action.payload;
       return {
         ...state,
         filters: {
           ...state.filters,
-          ...updatedFilter,
+          ...updatedFilters,
         },
       };
 
