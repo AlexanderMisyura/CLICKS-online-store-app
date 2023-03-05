@@ -39,6 +39,7 @@ const filterReducer = (state, action) => {
           minPriceValue: 0,
           maxPrice: 0,
           maxPriceValue: state.filters.maxPrice,
+          rating: 0,
         },
       };
 

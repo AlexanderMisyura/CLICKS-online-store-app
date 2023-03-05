@@ -32,7 +32,9 @@ const RatingFilter = () => {
         onMouseOver={(e) =>
           setHoverRating(Number(e.currentTarget.dataset.rating))
         }
-        onClick={updateFilters}
+        onClick={(e) =>
+          updateFilters({ [e.currentTarget.name]: Number(e.currentTarget.value) })
+        }
         name={"rating"}
         value={i + 1}
         className={`star ${starBrightness}`}

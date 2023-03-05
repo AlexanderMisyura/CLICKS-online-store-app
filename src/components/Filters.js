@@ -117,7 +117,14 @@ const Filters = () => {
               </div>
             </div>
             <div className="form-control">
-              <h5>Rating</h5>
+              <div className="filter-heading">
+                <h5>rating</h5>
+                <RiFilterOffLine
+                  onClick={() => updateFilters({rating: 0})}
+                  className="reset-icon"
+                  title="reset filter"
+                />
+              </div>
               <RatingFilter />
             </div>
             <div className="form-control"></div>
