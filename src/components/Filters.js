@@ -1,9 +1,11 @@
+import { useRef } from "react";
 import styled from "styled-components";
 import {
   BsTrash,
   BsChevronDoubleDown,
   BsChevronDoubleUp,
 } from "react-icons/bs";
+import { RiFilterOffLine } from "react-icons/ri";
 
 import RatingFilter from "./RatingFilter";
 import SelectFilter from "./SelectFilter";
@@ -24,7 +26,27 @@ const Filters = () => {
   const { isFilterOpen, openFilter, closeFilter } = useFunctionalContext();
   const { allCategories, allBrands } = getFilterValues(allProducts);
 
-  const { brand, category, search, minPriceValue, maxPriceValue } = filters;
+  const {
+    brand,
+    category,
+    search,
+    minPrice,
+    maxPrice,
+    minPriceValue,
+    maxPriceValue,
+  } = filters;
+
+  const minPriceElement = useRef(null);
+  const maxPriceElement = useRef(null);
+
+  const clearPriceFilters = () => {
+    minPriceElement.current.value = "";
+    maxPriceElement.current.value = "";
+    updateFilters({
+      minPrice: minPriceValue,
+      maxPrice: maxPriceValue,
+    });
+  }
 
   return (
     <StyledFilters>
@@ -64,19 +86,30 @@ const Filters = () => {
             </div>
 
             <div className="form-control">
-              <h5>price</h5>
+              <div className="filter-heading">
+                <h5>price</h5>
+                <RiFilterOffLine
+                  onClick={clearPriceFilters}
+                  className="reset-icon"
+                  title="reset filter"
+                />
+              </div>
               <div className="price-control">
                 <input
-                  // onChange={}
-                  // value={}
+                  onChange={(e) =>
+                    updateFilters({ minPrice: Number(e.target.value) })
+                  }
+                  ref={minPriceElement}
                   className="form-input"
                   type="text"
                   placeholder={minPriceValue}
-                />{" "}
+                />
                 <span>&#x2013;</span>
                 <input
-                  // onChange={}
-                  // value={}
+                  onChange={(e) =>
+                    updateFilters({ maxPrice: Number(e.target.value) })
+                  }
+                  ref={maxPriceElement}
                   className="form-input"
                   type="text"
                   placeholder={maxPriceValue}
@@ -150,12 +183,30 @@ const StyledFilters = styled.section`
     margin-bottom: 1.25rem;
 
     h5 {
-      margin-bottom: 0.5rem;
+      margin-bottom: 0;
     }
   }
   input,
   select {
     font-size: 1.25rem;
+  }
+
+  .filter-heading {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    h5 {
+      flex-basis: 100%;
+    }
+    .reset-icon {
+      margin-right: 0.5rem;
+
+      font-size: 1.5rem;
+      color: var(--red-dark);
+      cursor: pointer;
+
+      transition: var(--transition);
+    }
   }
 
   .price-control {
@@ -227,6 +278,30 @@ const StyledFilters = styled.section`
     select {
       font-size: 1rem;
     }
+
+    .filter-heading {
+      h5 {
+      }
+      .reset-icon {
+        display: none;
+        margin-right: 0;
+
+        color: var(--primary-800);
+        font-size: 1rem;
+
+        transition: var(--transition);
+      }
+
+      &:hover {
+        .reset-icon {
+          display: block;
+          &:hover {
+            color: var(--red-dark);
+          }
+        }
+      }
+    }
+
     .title-item {
       position: relative;
 

@@ -13,12 +13,15 @@ const filterReducer = (state, action) => {
     case INITIAL_PRODUCTS_LOAD:
       const products = action.payload;
       const maxPrice = Math.max(...products.map((product) => product.price));
+      const minPrice = Math.min(...products.map((product) => product.price));
       return {
         ...state,
         allProducts: [...products],
         filteredProducts: [...products],
         filters: {
           ...state.filters,
+          minPrice,
+          minPriceValue: minPrice,
           maxPrice,
           maxPriceValue: maxPrice,
         },
