@@ -28,7 +28,9 @@ const Filters = () => {
 
   return (
     <StyledFilters>
-      <div className="filters-wrapper">
+      <div
+        className={isFilterOpen ? "filters-wrapper" : "filters-wrapper hidden"}
+      >
         <div
           className={
             isFilterOpen ? "filters scroll" : "filters filters--collapse scroll"
@@ -132,35 +134,34 @@ const Filters = () => {
 
 const StyledFilters = styled.section`
   .filters-wrapper {
+    width: 90vw;
+    padding: 0.75rem 0;
+
+    background-color: var(--grey-50);
+    box-shadow: var(--shadow-m);
+    border-radius: var(--borderRadius);
+
     position: fixed;
     top: calc(4.5rem + min(5vw, calc(2rem)));
     z-index: 20;
-
-    /* fix small screen */
-    /* padding: 0.75rem 1rem;
-    background-color: var(--grey-50);
-    box-shadow: var(--shadow-m);
-    border-radius: var(--borderRadius);
-    width: 90vw; */
   }
-
+  .filters-wrapper.hidden {
+    padding: 0;
+  }
   .filters {
     padding: 0.75rem 1rem;
-    width: 90vw;
-    max-height: calc(100vh - calc(5.75rem + min(2.5vw, 1rem)) - 1rem - 31px);
-    overflow: hidden;
-    /* fix small screen */
-    /* overflow-y: auto; */
+    width: 100%;
+    max-height: calc(
+      100vh - calc(5.75rem + min(2.5vw, 1rem)) - 1rem - 31px - 0.75rem
+    );
 
     background-color: var(--grey-50);
     border-radius: var(--borderRadius);
-    box-shadow: var(--shadow-m);
+    box-shadow: none;
+    overflow-y: auto;
 
     transition: var(--transition);
 
-    /* fix small screen */
-    /* width: 100%;
-    box-shadow: none; */
   }
 
   .filters--collapse {
@@ -201,7 +202,7 @@ const StyledFilters = styled.section`
     color: var(--primary-500);
     font-size: 1rem;
 
-    background: linear-gradient(to top, #fafafa 20%, #ffffff00);
+    background: linear-gradient(to top, var(--grey-50) 20%, #ffffff00);
     border-top-left-radius: 0;
     border-top-right-radius: 0;
 
@@ -217,12 +218,20 @@ const StyledFilters = styled.section`
   .btn--filters-collapse {
     background-color: var(--grey-50);
     background-image: none;
+    transform: translateY(0.75rem);
   }
 
   @media (min-width: 768px) {
     .filters-wrapper {
+      width: 100%;
+      padding: 0;
+
+      background: none;
+      box-shadow: none;
+
       position: sticky;
       top: calc(5.75rem + min(2.5vw, 1rem));
+
       .filters {
         width: 100%;
         padding: 0 1rem 0 0;
