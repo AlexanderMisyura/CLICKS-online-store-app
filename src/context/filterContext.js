@@ -19,9 +19,9 @@ const initialState = {
     category: [],
     search: "",
     minPrice: 0,
-    minPriceFilter: 0,
+    minPriceFilter: "",
     maxPrice: 0,
-    maxPriceFilter: 0,
+    maxPriceFilter: "",
     rating: 0,
   },
 };

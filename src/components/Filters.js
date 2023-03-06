@@ -1,7 +1,6 @@
 import { useRef } from "react";
 import styled from "styled-components";
 import {
-  BsTrash,
   BsChevronDoubleDown,
   BsChevronDoubleUp,
 } from "react-icons/bs";
@@ -15,23 +14,13 @@ import { useFunctionalContext } from "../context/functionalContext";
 import { getFilterValues } from "../utils";
 
 const Filters = () => {
-  const {
-    filters,
-    allProducts,
-    clearFilters,
-    updateFilters,
-    updateSort,
-  } = useFilterContext();
+  const { filters, allProducts, clearFilters, updateFilters, updateSort } =
+    useFilterContext();
   const { isFilterOpen, openFilter, closeFilter } = useFunctionalContext();
   const { allCategories, allBrands } = getFilterValues(allProducts);
 
-  const {
-    search,
-    minPrice,
-    maxPrice,
-    minPriceFilter,
-    maxPriceFilter,
-  } = filters;
+  const { search, minPrice, maxPrice, minPriceFilter, maxPriceFilter } =
+    filters;
 
   const searchElement = useRef(null);
   const minPriceElement = useRef(null);
@@ -45,8 +34,8 @@ const Filters = () => {
     minPriceElement.current.value = "";
     maxPriceElement.current.value = "";
     updateFilters({
-      minPriceFilter: minPrice,
-      maxPriceFilter: maxPrice,
+      minPriceFilter: "",
+      maxPriceFilter: "",
     });
   };
   const clearAllFilters = () => {
@@ -54,7 +43,7 @@ const Filters = () => {
     minPriceElement.current.value = "";
     maxPriceElement.current.value = "";
     clearFilters();
-  }
+  };
 
   return (
     <StyledFilters>
@@ -78,6 +67,7 @@ const Filters = () => {
               </div>
               <input
                 onChange={(e) => updateFilters({ search: e.target.value })}
+                value={search}
                 ref={searchElement}
                 className="form-input"
                 type="text"
@@ -112,8 +102,9 @@ const Filters = () => {
               <div className="price-control">
                 <input
                   onChange={(e) =>
-                    updateFilters({ minPriceFilter: Number(e.target.value) })
+                    updateFilters({ minPriceFilter: e.target.value })
                   }
+                  value={minPriceFilter}
                   ref={minPriceElement}
                   className="form-input"
                   type="text"
@@ -122,8 +113,9 @@ const Filters = () => {
                 <span>&#x2013;</span>
                 <input
                   onChange={(e) =>
-                    updateFilters({ maxPriceFilter: Number(e.target.value) })
+                    updateFilters({ maxPriceFilter: e.target.value })
                   }
+                  value={maxPriceFilter}
                   ref={maxPriceElement}
                   className="form-input"
                   type="text"
