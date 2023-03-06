@@ -134,7 +134,6 @@ const Filters = () => {
               </div>
               <RatingFilter />
             </div>
-            <div className="form-control"></div>
           </form>
           <button onClick={clearAllFilters} className="btn">
             clear
@@ -169,7 +168,7 @@ const StyledFilters = styled.section`
 
     position: fixed;
     top: calc(4.5rem + min(5vw, calc(2rem)));
-    z-index: 20;
+    z-index: 17;
   }
   .filters-wrapper.hidden {
     padding: 0;
