@@ -20,7 +20,9 @@ const SelectFilter = ({ filterTitle, filterName, items }) => {
 
   const addToFilter = (e) => {
     const newValue = e.currentTarget.dataset.filterValue;
-    const filterList = [...filters[filterName], newValue].sort((a,b) => a.localeCompare(b));
+    const filterList = [...filters[filterName], newValue].sort((a, b) =>
+      a.localeCompare(b)
+    );
     updateFilters({ [filterName]: filterList });
   };
 
@@ -78,8 +80,9 @@ const SelectFilter = ({ filterTitle, filterName, items }) => {
           }
         >
           {isExpand &&
-            items.map((item) => {
-              if (!filters[filterName].includes(item)) {
+            items
+              .filter((item) => !filters[filterName].includes(item))
+              .map((item) => {
                 return (
                   <div
                     onClick={addToFilter}
@@ -92,8 +95,7 @@ const SelectFilter = ({ filterTitle, filterName, items }) => {
                     <RxPlus />
                   </div>
                 );
-              }
-            })}
+              })}
         </div>
       </div>
     </StyledSelect>
