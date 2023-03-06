@@ -11,7 +11,7 @@ import SelectFilter from "./SelectFilter";
 
 import { useFilterContext } from "../context/filterContext";
 import { useFunctionalContext } from "../context/functionalContext";
-import { getFilterValues } from "../utils";
+import { getFilterValues } from "../utils/utils";
 
 const Filters = () => {
   const { filters, allProducts, clearFilters, updateFilters, updateSort } =

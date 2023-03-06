@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { TfiViewList, TfiLayoutGrid3 } from "react-icons/tfi";
 import { RxTriangleRight, RxTriangleDown } from "react-icons/rx";
 
-import { sortValues } from "../consts";
+import { sortValues } from "../utils/consts";
 import { useFunctionalContext } from "../context/functionalContext";
 import { useFilterContext } from "../context/filterContext";
 
