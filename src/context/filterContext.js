@@ -13,7 +13,7 @@ import { useProductsContext } from "./productsContext";
 const initialState = {
   filteredProducts: [],
   allProducts: [],
-  sortBy: "rating-high",
+  sortValue: "rating-high",
   filters: {
     brand: [],
     category: [],
@@ -44,15 +44,14 @@ export const FilterProvider = ({ children }) => {
     dispatch({ type: UPDATE_FILTERS, payload: filters });
   };
 
-  const updateSort = (e) => {
-    const sortValue = e.target.dataset.sortValue;
+  const updateSort = (sortValue) => {
     dispatch({ type: UPDATE_SORT, payload: sortValue });
   };
 
   useEffect(() => {
     dispatch({ type: FILTER_PRODUCTS });
     dispatch({ type: SORT_PRODUCTS });
-  }, [products, state.sortProducts, state.filters]);
+  }, [products, state.sortValue, state.filters]);
 
   return (
     <FilterContext.Provider

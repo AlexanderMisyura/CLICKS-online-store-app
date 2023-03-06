@@ -93,17 +93,53 @@ const filterReducer = (state, action) => {
       };
 
     case UPDATE_SORT:
-      const sortValue = action.payload;
-      console.log("sort by ", sortValue);
       return {
         ...state,
+        sortValue: action.payload,
       };
 
     case SORT_PRODUCTS:
-      // console.log("sort products", state.filteredProducts);
-      return {
-        ...state,
-      };
+      const sortValue = state.sortValue;
+      const sortedProducts = [...state.filteredProducts];
+      switch (sortValue) {
+        case "price-low":
+          sortedProducts.sort((a, b) => a.price - b.price);
+          break;
+        case "price-high":
+          sortedProducts.sort((a, b) => b.price - a.price);
+          break;
+        case "rating-low":
+          sortedProducts.sort((a, b) => a.rating - b.rating);
+          break;
+        case "rating-high":
+          sortedProducts.sort((a, b) => b.rating - a.rating);
+          break;
+        case "name-a":
+          sortedProducts.sort((a, b) =>
+            a.title.toLowerCase().localeCompare(b.title)
+          );
+          break;
+        case "name-z":
+          sortedProducts.sort((a, b) =>
+            b.title.toLowerCase().localeCompare(a.title)
+          );
+          break;
+        case "discount-low":
+          sortedProducts.sort(
+            (a, b) => a.discountPercentage - b.discountPercentage
+          );
+          break;
+        case "discount-high":
+          sortedProducts.sort(
+            (a, b) => b.discountPercentage - a.discountPercentage
+          );
+          break;
+
+        default:
+          break;
+      }
+
+      return { ...state, filteredProducts: sortedProducts };
 
     default:
       throw new Error(`No action type matching ${action.type}`);
