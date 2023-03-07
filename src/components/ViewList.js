@@ -43,7 +43,7 @@ const StyledList = styled.div`
   .products-list {
     display: grid;
     row-gap: 2rem;
-    margin: 4rem auto;
+    margin: 0 auto;
 
     article {
       display: grid;

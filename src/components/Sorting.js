@@ -75,6 +75,7 @@ const Sorting = () => {
 const StyledSorting = styled.div`
   display: flex;
   flex-direction: column;
+  margin-bottom: 2rem;
   justify-content: space-between;
   align-items: center;
 

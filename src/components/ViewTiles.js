@@ -18,7 +18,7 @@ const StyledTiles = styled.div`
   .products-tiles {
     display: grid;
     gap: 2.1rem;
-    margin: 4rem auto;
+    margin: 0 auto;
 
     .shade,
     .image-container {
