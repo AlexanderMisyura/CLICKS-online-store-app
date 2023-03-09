@@ -5,6 +5,7 @@ import Error from "./Error";
 import Filters from "./Filters";
 import Footer from "./Footer";
 import Hero from "./Hero";
+import ImageGallery from "./ImageGallery";
 import Loading from "./Loading";
 import Navbar from "./Navbar";
 import Product from "./Product";
@@ -26,6 +27,7 @@ export {
   Filters,
   Footer,
   Hero,
+  ImageGallery,
   Loading,
   Navbar,
   Product,
