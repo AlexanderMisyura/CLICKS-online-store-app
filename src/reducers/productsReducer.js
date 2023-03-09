@@ -53,8 +53,8 @@ const productsReducer = (state, action) => {
     case GET_SINGLE_PRODUCT_ERROR:
       return {
         ...state,
-        singelProductLoading: false,
-        singelProductError: true,
+        singleProductLoading: false,
+        singleProductError: true,
       };
 
     default:
