@@ -2,6 +2,9 @@ import {
   GET_PRODUCTS_START,
   GET_PRODUCTS_SUCCESS,
   GET_PRODUCTS_ERROR,
+  GET_SINGLE_PRODUCT_START,
+  GET_SINGLE_PRODUCT_SUCCESS,
+  GET_SINGLE_PRODUCT_ERROR,
 } from "../actions";
 
 const productsReducer = (state, action) => {
@@ -22,11 +25,37 @@ const productsReducer = (state, action) => {
         productsError: false,
         products: action.payload,
         topRated,
-        topDiscount
+        topDiscount,
       };
 
     case GET_PRODUCTS_ERROR:
-      return { ...state, productsLoading: false, productsError: true };
+      return {
+        ...state,
+        singleProductLoading: false,
+        singleProductError: true,
+      };
+
+    case GET_SINGLE_PRODUCT_START:
+      return {
+        ...state,
+        singleProductLoading: true,
+        singleProductError: false,
+      };
+
+    case GET_SINGLE_PRODUCT_SUCCESS:
+      return {
+        ...state,
+        singleProductLoading: false,
+        singleProductError: false,
+        singleProduct: action.payload,
+      };
+
+    case GET_SINGLE_PRODUCT_ERROR:
+      return {
+        ...state,
+        singelProductLoading: false,
+        singelProductError: true,
+      };
 
     default:
       throw new Error(`No action type matching ${action.type}`);

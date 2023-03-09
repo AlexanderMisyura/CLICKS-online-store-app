@@ -6,6 +6,9 @@ import {
   GET_PRODUCTS_START,
   GET_PRODUCTS_SUCCESS,
   GET_PRODUCTS_ERROR,
+  GET_SINGLE_PRODUCT_START,
+  GET_SINGLE_PRODUCT_SUCCESS,
+  GET_SINGLE_PRODUCT_ERROR,
 } from "../actions";
 
 const url = "https://dummyjson.com/products?limit=100";
@@ -16,6 +19,9 @@ const initialState = {
   topDiscount: [],
   productsLoading: false,
   productsError: false,
+  singleProduct: {},
+  singleProductLoading: false,
+  singleProductError: false,
 };
 
 const ProductsContext = React.createContext();
@@ -37,8 +43,18 @@ export const ProductsProvider = ({ children }) => {
     fetchProducts(url);
   }, []);
 
+  const fetchSingleProduct = async (url) => {
+    dispatch({ type: GET_SINGLE_PRODUCT_START });
+    try {
+      const { data } = await axios(url);
+      dispatch({ type: GET_SINGLE_PRODUCT_SUCCESS, payload: data });
+    } catch (error) {
+      dispatch({ type: GET_SINGLE_PRODUCT_ERROR });
+    }
+  };
+
   return (
-    <ProductsContext.Provider value={{ ...state }}>
+    <ProductsContext.Provider value={{ ...state, fetchSingleProduct }}>
       {children}
     </ProductsContext.Provider>
   );
