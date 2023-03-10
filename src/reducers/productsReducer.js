@@ -43,11 +43,21 @@ const productsReducer = (state, action) => {
       };
 
     case GET_SINGLE_PRODUCT_SUCCESS:
+      const product = action.payload;
+      const thumbnail = product.images.find((url) => url.includes("thumbnail"));
+      let shiftedImages = [...product.images];
+      if (thumbnail) {
+        shiftedImages = shiftedImages.filter(
+          (url) => !url.includes("thumbnail")
+        );
+        shiftedImages.unshift(thumbnail);
+      }
+
       return {
         ...state,
         singleProductLoading: false,
         singleProductError: false,
-        singleProduct: action.payload,
+        singleProduct: { ...product, images: shiftedImages },
       };
 
     case GET_SINGLE_PRODUCT_ERROR:
