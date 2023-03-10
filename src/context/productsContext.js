@@ -20,7 +20,7 @@ const initialState = {
   productsLoading: false,
   productsError: false,
   singleProduct: {},
-  singleProductLoading: false,
+  singleProductLoading: true,
   singleProductError: false,
 };
 
