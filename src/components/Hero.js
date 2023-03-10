@@ -17,7 +17,7 @@ const Hero = () => {
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore ex
           tempore odio pariatur et aliquid veritatis fugit explicabo? Ab, quas?
         </p>
-        <Link className="btn hero-btn" to="/products">
+        <Link className="btn btn-special" to="/products">
           Go shopping
         </Link>
       </article>
@@ -25,12 +25,12 @@ const Hero = () => {
         <img
           className="img main-img"
           src={img_1}
-          alt="small shopping cart on laptop"
+          alt="small shopping cart"
         />
         <img
           className="img additional-img"
           src={img_2}
-          alt="hand holding gift bags"
+          alt="hand holding baloon"
         />
       </article>
     </StyledHero>
@@ -68,20 +68,6 @@ const StyledHero = styled.section`
     line-height: 2.5rem;
   }
 
-  .hero-btn {
-    text-shadow: 2px 2px 2px var(--grey-700);
-    background-image: radial-gradient(
-      var(--secondary-800),
-      var(--secondary-600)
-    );
-  }
-  .hero-btn:hover {
-    background-image: radial-gradient(
-      var(--secondary-900),
-      var(--secondary-700)
-    );
-  }
-
   .image-wrapper {
     display: none;
   }
@@ -98,10 +84,6 @@ const StyledHero = styled.section`
 
     p {
       font-size: 1.25rem;
-    }
-
-    .hero-btn {
-      padding: 0.75rem 1.5rem;
     }
 
     .image-wrapper {
