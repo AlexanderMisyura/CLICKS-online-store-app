@@ -56,8 +56,7 @@ const StyledList = styled.div`
   }
 
   .image-container {
-    height: 100%;
-    max-height: 200px;
+    height: 200px;
 
     overflow: hidden;
     border-top-left-radius: var(--borderRadius);
@@ -148,8 +147,16 @@ const StyledList = styled.div`
     }
   }
 
+  @media (min-width: 330px) {
+    .image-container {
+      height: 300px;
+    }
+
+  }
+
   @media (min-width: 470px) {
     .image-container {
+      height: 100%;
       max-height: 230px;
       margin-bottom: 0;
 
