@@ -97,7 +97,7 @@ const StyledSorting = styled.div`
       padding: 0.3rem;
       align-items: center;
 
-      font-size: 1.25rem;
+      font-size: 2rem;
 
       border: transparent;
       border-radius: var(--borderRadius);
@@ -121,9 +121,10 @@ const StyledSorting = styled.div`
 
   .sort {
     position: relative;
-    min-width: 160px;
+    min-width: 200px;
     cursor: pointer;
-    /* order: 2; */
+
+    font-size: 1.5rem;
 
     .sort__header {
       display: flex;
@@ -179,13 +180,24 @@ const StyledSorting = styled.div`
     }
   }
 
-  @media (min-width: 450px) {
+  @media (min-width: 470px) {
     flex-direction: row;
     & > div:not(div:last-child) {
       margin-bottom: 0;
     }
     .btn-container {
       order: 2;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .btn-container {
+      button {
+        font-size: 1.25rem;
+      }
+    }
+    .sort {
+      font-size: 1.25rem;
     }
   }
 `;

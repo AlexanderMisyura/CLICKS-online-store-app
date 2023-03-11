@@ -31,12 +31,13 @@ const ProductsPage = () => {
 const StyledProductPage = styled.div`
   .products {
     display: grid;
-    gap: 2rem;
+    gap: 4rem;
   }
 
   @media (min-width: 768px) {
     .products {
       grid-template-columns: 200px 1fr;
+      gap: 2rem;
     }
   }
 `;

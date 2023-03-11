@@ -1,9 +1,6 @@
 import { useRef } from "react";
 import styled from "styled-components";
-import {
-  BsChevronDoubleDown,
-  BsChevronDoubleUp,
-} from "react-icons/bs";
+import { BsChevronDoubleDown, BsChevronDoubleUp } from "react-icons/bs";
 import { RiFilterOffLine } from "react-icons/ri";
 
 import RatingFilter from "./RatingFilter";
@@ -159,7 +156,7 @@ const Filters = () => {
 
 const StyledFilters = styled.section`
   .filters-wrapper {
-    width: 90vw;
+    width: 95vw;
     padding: 0.75rem 0;
 
     background-color: var(--grey-50);
@@ -176,8 +173,11 @@ const StyledFilters = styled.section`
   .filters {
     padding: 0.75rem 1rem;
     width: 100%;
+    /* 100vh - navbar - top nav - bot nav - padding top filter-wrapper - padding bottom filter-wrapper*/
+    /* - button bottom spacing - button paddings - button font-size*/
     max-height: calc(
-      100vh - calc(5.75rem + min(2.5vw, 1rem)) - 1rem - 31px - 0.75rem
+      100vh - 4.5rem - calc(2.5vw, 1rem) - calc(2.5vw, 1rem) - 0.75rem - 0.75rem -
+        1rem - calc(0.75rem + 0.75rem) - 1.5rem
     );
 
     background-color: var(--grey-50);
@@ -240,9 +240,10 @@ const StyledFilters = styled.section`
   .btn--filters {
     display: flex;
     align-items: center;
+    padding: 0.75rem 1.5rem;
 
     color: var(--primary-500);
-    font-size: 1rem;
+    font-size: 1.5rem;
 
     background: linear-gradient(to top, var(--grey-50) 20%, #ffffff00);
     border-top-left-radius: 0;
@@ -253,7 +254,7 @@ const StyledFilters = styled.section`
 
     svg {
       margin-right: 5px;
-      font-size: 1.2rem;
+      font-size: 1.5rem;
     }
   }
 

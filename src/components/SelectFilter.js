@@ -148,7 +148,9 @@ const StyledSelect = styled.div`
       grid-template-columns: auto 1fr;
       gap: 0.5rem;
       align-items: center;
-      padding: 0 0.3rem;
+      padding: var(--element-padding);
+
+      font-size: 1.25rem;
 
       background-color: var(--primary-100);
       border-radius: var(--borderRadius);
@@ -207,6 +209,9 @@ const StyledSelect = styled.div`
       .item {
         max-width: 200px;
         grid-template-columns: 1fr max-content;
+        padding: 0 0.3rem;
+
+        font-size: inherit;
 
         background: none;
 
