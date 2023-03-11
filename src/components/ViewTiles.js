@@ -17,7 +17,7 @@ const ViewTiles = ({ products }) => {
 const StyledTiles = styled.div`
   .products-tiles {
     display: grid;
-    gap: 2.1rem;
+    gap: 1.5rem;
     margin: 0 auto;
 
     .shade,
@@ -26,14 +26,41 @@ const StyledTiles = styled.div`
     }
   }
 
+  @media (min-width: 300px) {
+    .products-tiles {
+      .shade,
+      .image-container {
+        height: 250px;
+      }
+    }
+  }
+
+  @media (min-width: 390px) {
+    .products-tiles {
+      gap: 1rem;
+      grid-template-columns: 1fr 1fr;
+
+      .shade,
+      .image-container {
+        height: 180px;
+      }
+    }
+  }
+
   @media (min-width: 576px) {
     .products-tiles {
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: 1fr 1fr;
 
       .shade,
       .image-container {
         height: 220px;
       }
+    }
+  }
+
+  @media (min-width: 768px) {
+    .products-tiles {
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     }
   }
 `;

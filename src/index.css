@@ -347,7 +347,7 @@ select {
   padding: 3rem 0;
 }
 .section-center {
-  width: 90vw;
+  width: 95vw;
   max-width: var(--max-width);
   margin: 0 auto;
 }
@@ -357,9 +357,6 @@ select {
 @media (min-width: 992px) {
   .section {
     padding: 5rem 0;
-  }
-  .section-center {
-    width: 95vw;
   }
 }
 
