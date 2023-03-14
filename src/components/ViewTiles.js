@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import styled from "styled-components";
 
 import Product from "./Product";
@@ -6,12 +7,16 @@ const ViewTiles = ({ products }) => {
   return (
     <StyledTiles>
       <div className="products-tiles">
-        {products.map((product, i) => {
+        {products.map((product) => {
           return <Product key={product.id} product={product} />;
         })}
       </div>
     </StyledTiles>
   );
+};
+
+ViewTiles.propTypes = {
+  products: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 const StyledTiles = styled.div`

@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
@@ -20,6 +21,10 @@ const Product = ({ product }) => {
       </Link>
     </StyledProduct>
   );
+};
+
+Product.propTypes = {
+  product: PropTypes.object.isRequired,
 };
 
 const StyledProduct = styled.article`

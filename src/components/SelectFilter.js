@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 import {
   RxTriangleRight,
@@ -100,6 +101,12 @@ const SelectFilter = ({ filterTitle, filterName, items }) => {
       </div>
     </StyledSelect>
   );
+};
+
+SelectFilter.propTypes = {
+  filterTitle: PropTypes.string.isRequired,
+  filterName: PropTypes.string.isRequired,
+  items: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 const StyledSelect = styled.div`

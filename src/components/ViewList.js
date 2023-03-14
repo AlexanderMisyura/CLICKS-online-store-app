@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -40,6 +41,10 @@ const ViewList = ({ products }) => {
       </div>
     </StyledList>
   );
+};
+
+ViewList.propTypes = {
+  products: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 const StyledList = styled.div`
@@ -151,7 +156,6 @@ const StyledList = styled.div`
     .image-container {
       height: 300px;
     }
-
   }
 
   @media (min-width: 470px) {

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 
 const ImageGallery = ({ images }) => {
@@ -26,6 +27,10 @@ const ImageGallery = ({ images }) => {
       </div>
     </StyledGallery>
   );
+};
+
+ImageGallery.propTypes = {
+  images: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 const StyledGallery = styled.div`
