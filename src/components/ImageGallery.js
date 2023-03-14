@@ -74,7 +74,7 @@ const StyledGallery = styled.div`
     }
   }
 
-  @media (min-width: 550px) {
+  @media (min-width: 500px) {
     gap: 1rem;
     .img--main {
       height: 400px;
@@ -87,9 +87,16 @@ const StyledGallery = styled.div`
     }
   }
 
-  @media (min-width: 798px) {
+  @media (min-width: 600px) {
+    gap: 1rem;
     .img--main {
       height: 500px;
+    }
+  }
+
+  @media (min-width: 798px) {
+    .img--main {
+      height: 600px;
     }
   }
 

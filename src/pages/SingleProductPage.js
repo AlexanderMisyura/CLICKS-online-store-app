@@ -74,7 +74,10 @@ const SingleProduct = () => {
                   Stock available: {stock}
                 </div>
               </div>
-              <p className="product__info__description">{description}</p>
+              <div className="product__info__description">
+                <p>Brand: {brand}</p>
+                <p>{description}</p>
+              </div>
             </section>
           </section>
         </>
