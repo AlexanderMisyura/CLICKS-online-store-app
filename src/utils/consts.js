@@ -8,3 +8,14 @@ export const sortValues = [
   { id: 7, title: "Discount: Lowest", value: "discount-low" },
   { id: 8, title: "Discount: Highest", value: "discount-high" },
 ];
+
+export const searchPlaceholders = [
+  "bag",
+  "glasses",
+  "iPhone",
+  "laptop",
+  "perfume",
+  "shirt",
+  "shoes",
+  "watch",
+]

@@ -1,3 +1,5 @@
+import { searchPlaceholders } from "./consts";
+
 export const getFilterValues = (products) => {
   const filterValues = products.reduce(
     (result, product) => {
@@ -22,4 +24,9 @@ export const getFilterValues = (products) => {
   );
 
   return filterValues;
+};
+
+export const getSearchPlaceholder = () => {
+  const index = Math.floor(Math.random() * searchPlaceholders.length);
+  return searchPlaceholders[index];
 };

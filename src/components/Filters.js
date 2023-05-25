@@ -8,7 +8,7 @@ import SelectFilter from "./SelectFilter";
 
 import { useFilterContext } from "../context/filterContext";
 import { useFunctionalContext } from "../context/functionalContext";
-import { getFilterValues } from "../utils/utils";
+import { getFilterValues, getSearchPlaceholder } from "../utils/utils";
 
 const Filters = () => {
   const { filters, allProducts, clearFilters, updateFilters, updateSort } =
@@ -19,6 +19,7 @@ const Filters = () => {
   const { search, minPrice, maxPrice, minPriceFilter, maxPriceFilter } =
     filters;
 
+  const searchPlaceholder = useRef(getSearchPlaceholder())
   const searchElement = useRef(null);
   const minPriceElement = useRef(null);
   const maxPriceElement = useRef(null);
@@ -68,7 +69,7 @@ const Filters = () => {
                 ref={searchElement}
                 className="form-input"
                 type="text"
-                placeholder="shoes"
+                placeholder={searchPlaceholder.current}
               />
             </div>
 
