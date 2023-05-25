@@ -54,8 +54,6 @@ const StyledTiles = styled.div`
 
   @media (min-width: 576px) {
     .products-tiles {
-      grid-template-columns: 1fr 1fr;
-
       .shade,
       .image-container {
         height: 220px;
@@ -63,9 +61,9 @@ const StyledTiles = styled.div`
     }
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 1180px) {
     .products-tiles {
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: 1fr 1fr 1fr;
     }
   }
 `;
