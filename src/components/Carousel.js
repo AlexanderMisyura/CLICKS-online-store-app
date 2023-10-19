@@ -21,7 +21,7 @@ const Carousel = () => {
     return () => {
       clearTimeout(timeoutId);
     };
-  }, [activeSlideIndex, nextSlideIndex]);
+  }, [nextSlideIndex]);
 
   return (
     <div className="section section-center">

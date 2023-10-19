@@ -11,7 +11,7 @@ import { useFunctionalContext } from "../context/functionalContext";
 import { getFilterValues, getSearchPlaceholder } from "../utils/utils";
 
 const Filters = () => {
-  const { filters, allProducts, clearFilters, updateFilters, updateSort } =
+  const { filters, allProducts, clearFilters, updateFilters } =
     useFilterContext();
   const { isFilterOpen, openFilter, closeFilter } = useFunctionalContext();
   const { allCategories, allBrands } = getFilterValues(allProducts);
