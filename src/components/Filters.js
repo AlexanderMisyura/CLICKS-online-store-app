@@ -203,7 +203,6 @@ const StyledFilters = styled.section`
     }
   }
   input {
-    color: var(--grey-300);
     font-size: 1.25rem;
   }
 

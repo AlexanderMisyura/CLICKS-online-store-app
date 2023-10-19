@@ -25,7 +25,7 @@ const TopRated = () => {
 };
 
 const StyledTopRated = styled.section`
-  background-color: var(--grey-400);
+  background-color: var(--grey-300);
 `;
 
 export default TopRated;
