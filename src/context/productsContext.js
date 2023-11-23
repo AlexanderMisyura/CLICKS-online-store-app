@@ -1,4 +1,4 @@
-import React, { useContext, useReducer, useEffect } from "react";
+import React, { useContext, useReducer, useEffect, useCallback } from "react";
 import axios from "axios";
 
 import reducer from "../reducers/productsReducer";
@@ -43,7 +43,7 @@ export const ProductsProvider = ({ children }) => {
     fetchProducts(url);
   }, []);
 
-  const fetchSingleProduct = async (url) => {
+   const fetchSingleProduct = useCallback(async (url) => {
     dispatch({ type: GET_SINGLE_PRODUCT_START });
     try {
       const { data } = await axios(url);
@@ -51,7 +51,7 @@ export const ProductsProvider = ({ children }) => {
     } catch (error) {
       dispatch({ type: GET_SINGLE_PRODUCT_ERROR });
     }
-  };
+  }, []);
 
   return (
     <ProductsContext.Provider value={{ ...state, fetchSingleProduct }}>

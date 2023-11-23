@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
-import { BsChevronLeft } from "react-icons/bs";
 
 import { Loading, Error, ImageGallery } from "../components";
 import { useProductsContext } from "../context/productsContext";
@@ -19,7 +18,7 @@ const SingleProduct = () => {
 
   useEffect(() => {
     fetchSingleProduct(`${url}${prodId}`);
-  }, [prodId]);
+  }, [fetchSingleProduct, prodId]);
 
   if (singleProductLoading) {
     return (
@@ -37,16 +36,12 @@ const SingleProduct = () => {
   }
 
   const {
-    id,
     title,
     description,
     price,
     discountPercentage,
-    rating,
     stock,
     brand,
-    category,
-    thumbnail,
     images,
   } = singleProduct;
 
